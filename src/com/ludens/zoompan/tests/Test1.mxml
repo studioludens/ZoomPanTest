@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300" 
+		 
+		 xmlns:layout="com.ludens.zoompan.layout.*" 
+		 xmlns:view="com.ludens.zoompan.view.*">
+	<fx:Declarations>
+		<fx:Number id="zoom">1</fx:Number>
+		<fx:Boolean id="zoomEnabled">true</fx:Boolean>
+		<fx:Boolean id="panEnabled">true</fx:Boolean>
+	</fx:Declarations>
+	
+	
+	<s:Group
+		clipAndEnableScrolling="true"
+		left="15" right="50" top="45" bottom="80" >
+		
+		<s:Group id="editor" width="100%" height="100%" >
+			<s:layout>
+				
+				<layout:ZoomPanLayout 
+					id="zpL1" 
+					zoomEnabled="@{zoomEnabled}" 
+					panEnabled="@{panEnabled}"
+					/>
+			</s:layout>
+			
+			<s:Image x="10" y="10" source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg"/>
+		</s:Group>
+		
+		<!-- rectangle around component -->
+		<s:Rect width="100%" height="100%">
+			<s:stroke>
+				<s:SolidColorStroke color="0" weight="1"/>
+			</s:stroke>
+		</s:Rect>
+		
+		<!-- debug sprite -->
+		<s:Group visible="{zpL1.zooming}">
+			<s:hideEffect>
+				<s:Fade id="fadeOut" alphaFrom=".3" alphaTo="0" duration="300"/>
+			</s:hideEffect>
+			
+			
+			<s:Ellipse 
+				width="20" height="20" x="{zpL1.zoomPoint.x-10}" y="{zpL1.zoomPoint.y-10}"
+				>
+				<s:stroke>
+					<s:SolidColorStroke color="0xFF0000" weight="5"/>
+				</s:stroke>
+			</s:Ellipse>
+		</s:Group>
+		
+		
+	</s:Group>
+	
+	<view:SimpleZoomPanController target="{zpL1}" left="15" top="15"/>
+</s:Group>

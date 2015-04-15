@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300"
+		 
+		 xmlns:layout="com.ludens.zoompan.layout.*" 
+		 xmlns:view="com.ludens.zoompan.view.*">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:Group id="editor5" width="100%" height="100%" >
+		<s:layout>
+			<layout:ZoomPanLayout 
+				id="zpL5"
+				backgroundElements="{[  gridBackground_2, 
+				gridBackground_1, 
+				gridBackground, 
+				gridBackground1,
+				gridBackground2,
+				gridBackground3]}"
+				animate="true"
+				>
+				
+			</layout:ZoomPanLayout>
+		</s:layout>
+		
+		<!-- insanely large grid -->
+		<view:GridBackground id="gridBackground_2"
+							 gridLineDistance="1000"
+							 />
+		
+		<!-- really large grid -->
+		<view:GridBackground id="gridBackground_1"
+							 gridLineDistance="1000"
+							 />
+		
+		<!-- large grid -->
+		<view:GridBackground id="gridBackground"
+							 gridLineDistance="100"
+							 />
+		<!-- small grid -->
+		<view:GridBackground id="gridBackground1"
+							 gridLineDistance="10"
+							 />
+		
+		<!-- very small grid -->
+		<view:GridBackground id="gridBackground2"
+							 gridLineDistance="1"
+							 />
+		<!-- tiny grid -->
+		<view:GridBackground id="gridBackground3"
+							 gridLineDistance=".1"
+							 />
+		
+		<s:Image source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg" x="100" y="100"/>
+		
+		
+		
+	</s:Group>
+	
+	<view:SimpleZoomPanController target="{zpL5}" left="15" top="15"/>
+</s:Group>

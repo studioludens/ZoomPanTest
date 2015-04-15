@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+					   xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   xmlns:layout="com.ludens.zoompan.layout.*"
+					   xmlns:layouts="ws.tink.spark.layouts.*"
+					   xmlns:containers="ws.tink.spark.containers.*"
+					   xmlns:controls="ws.tink.spark.controls.*"
+					   width="762" height="500" xmlns:assets="assets.*">
+	
+	<fx:Declarations>
+		<fx:int id="groupIndex">1</fx:int>
+		<fx:Number id="zoom">1</fx:Number>
+		<fx:Boolean id="zoomEnabled">true</fx:Boolean>
+		<fx:Boolean id="panEnabled">true</fx:Boolean>
+		
+		<fx:String id="matrixValuesText">{   
+			'a='   + zpLayout.transformMatrix.a 
+			+ 	'\nb='  + Math.round(zpLayout.transformMatrix.b) 
+			+ 	'\nc='  + Math.round(zpLayout.transformMatrix.c)
+			+ 	'\nd='  + Math.round(zpLayout.transformMatrix.d) 
+			+ 	'\ntx=' + Math.round(zpLayout.transformMatrix.tx) 
+			+ 	'\nty=' + Math.round(zpLayout.transformMatrix.ty)
+		}</fx:String>
+		
+		<s:ArrayCollection id="zoomToValues">
+			<s:source>
+				<fx:Array>
+					<fx:Object label="to fit" value="fit"/>
+					
+					<fx:Object label="200%" value="2"/>
+					<fx:Object label="100%" value="1"/>
+					<fx:Object label="50%" value=".5"/>
+					<fx:Object label="25%" value=".25"/>
+					<fx:Object label="10%" value=".1"/>
+					
+				</fx:Array>
+			</s:source>
+		</s:ArrayCollection>
+		
+	</fx:Declarations>
+	
+	<s:Group
+		clipAndEnableScrolling="true"
+		left="15" right="50" top="15" bottom="80" >
+		
+		<s:Group id="editor" width="100%" height="100%" >
+			<s:layout>
+				<layout:ZoomPanLayout 
+					id="zpLayout" 
+					zoomFactor="@{zoom}" 
+					zoomEnabled="@{zoomEnabled}" 
+					panEnabled="@{panEnabled}"
+					zoom="{zoomList.selectedItem.value}"/>
+			</s:layout>
+			<assets:USA_Counties x="0" y="0"/>
+			
+		</s:Group>
+		
+		<!-- rectangle around component -->
+		<s:Rect width="100%" height="100%">
+			<s:stroke>
+				<s:SolidColorStroke color="0" weight="1"/>
+			</s:stroke>
+		</s:Rect>
+		
+		<!-- debug sprite -->
+		<s:Group visible="{zpLayout.zooming}">
+			<s:hideEffect>
+				<s:Fade id="fadeOut" alphaFrom=".3" alphaTo="0" duration="300"/>
+			</s:hideEffect>
+			
+			
+			<s:Ellipse 
+				width="20" height="20" x="{zpLayout.zoomPoint.x-10}" y="{zpLayout.zoomPoint.y-10}"
+				>
+				<s:stroke>
+					<s:SolidColorStroke color="0xFF0000" weight="5"/>
+				</s:stroke>
+			</s:Ellipse>
+		</s:Group>
+		
+		
+	</s:Group>
+	
+	<s:Group 
+		id="navigation"
+		left="15" bottom="15" right="50">
+		<s:layout>
+			<s:HorizontalLayout gap="10"/>
+		</s:layout>
+		
+		<s:DropDownList id="zoomList" dataProvider="{zoomToValues}"></s:DropDownList>
+		<s:TextInput text="{Math.round(zpLayout.zoomFactor*100) + '%'}"/>
+		<s:Button label="zoom to fit" click="{zpLayout.zoom = 'fit'}"/>
+		
+		
+	</s:Group>
+	
+	
+	
+</s:WindowedApplication>

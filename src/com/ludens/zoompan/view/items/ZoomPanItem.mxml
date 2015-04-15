@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:ZoomPanItemBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					  xmlns:s="library://ns.adobe.com/flex/spark" 
+					  xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:view="com.ludens.zoompan.view.*" width="400" height="300"
+					  click="clickHandler(event)"
+					  addedToStage="addedToStageHandler(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.ludens.zoompan.events.ZoomPanEvent;
+			protected function clickHandler(event:MouseEvent):void
+			{
+				// fire an event to let the layout manager know we have been clicked
+				var e:ZoomPanEvent = new ZoomPanEvent(ZoomPanEvent.ON_ITEM_START);
+				this.dispatchEvent( e );
+			}
+			
+			protected function addedToStageHandler(event:Event):void
+			{
+				// TODO Auto-generated method stub
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+</view:ZoomPanItemBase>

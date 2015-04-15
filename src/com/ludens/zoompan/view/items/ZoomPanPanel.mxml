@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="150" height="150"
+		 currentState="tiny">
+	<s:states>
+		<s:State name="tiny"/>
+		<s:State name="normal"/>
+		<s:State name="detail"/>
+	</s:states>
+	
+	<fx:Script>
+		<![CDATA[
+			
+		]]>
+	</fx:Script>
+	
+	<!-- when the element is tiny, just show the + -->
+	<s:Label x="0" y="0" width="100%" height="100%" includeIn="tiny" fontSize="136" text="+"
+			 textAlign="center" verticalAlign="middle"/>
+	
+	<!-- in normal view, show the panel with a + -->
+	<s:Panel x="0" y="0" width="100%" height="100%" title="Test Panel" includeIn="normal,detail">
+		<s:layout.detail>
+			<s:HorizontalLayout/>
+		</s:layout.detail>
+		
+		<s:Group width="33%" height="100%">
+			<s:TextInput includeIn="detail" x="0" width="44" verticalCenter="-5"/>
+		</s:Group>
+		
+		<s:Label x="0" y="0" width="100%" height="100%" text="+" textAlign="center"
+				 verticalAlign="middle"
+				 width.detail="33%" fontSize.detail="50"
+				 fontSize.normal="96"/>
+		
+		<s:Group includeIn="detail" width="33%" height="100%">
+			<s:TextInput x="0" width="44" verticalCenter="-5"/>
+		</s:Group>
+	</s:Panel>
+	
+	
+</s:Group>

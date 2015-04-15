@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300"
+		 
+		 
+		 xmlns:layout="com.ludens.zoompan.layout.*" 
+		 xmlns:view="com.ludens.zoompan.view.*">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Group id="editor4" width="100%" height="100%" >
+		<s:layout>
+			<layout:ZoomPanLayout id="zpL4" animate="true" backgroundElements="{[gridBackground_4, gridBackground_3, gridBackground_2, gridBackground_1, gridBackground, gridBackground1,gridBackground2,gridBackground3]}"/>
+			
+		</s:layout>
+		
+		
+		<!-- impossibly large grid -->
+		<view:GridBackground id="gridBackground_4"
+							 gridLineDistance="100000"
+							 />
+		
+		<!-- ridiculously large grid -->
+		<view:GridBackground id="gridBackground_3"
+							 gridLineDistance="10000"
+							 />
+		
+		<!-- insanely large grid -->
+		<view:GridBackground id="gridBackground_2"
+							 gridLineDistance="1000"
+							 />
+		
+		<!-- really large grid -->
+		<view:GridBackground id="gridBackground_1"
+							 gridLineDistance="1000"
+							 />
+		
+		<!-- large grid -->
+		<view:GridBackground id="gridBackground"
+							 gridLineDistance="100"
+							 />
+		<!-- small grid -->
+		<view:GridBackground id="gridBackground1"
+							 gridLineDistance="10"
+							 />
+		
+		<!-- very small grid -->
+		<view:GridBackground id="gridBackground2"
+							 gridLineDistance="1"
+							 />
+		<!-- tiny grid -->
+		<view:GridBackground id="gridBackground3"
+							 gridLineDistance=".1"
+							 />
+		
+		
+		<s:Group>
+			<s:layout>
+				<s:HorizontalLayout gap="10" verticalAlign="middle"/>
+			</s:layout>
+			
+			<s:Image source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg" scaleX="100000" scaleY="100000"/>
+			<s:Image source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg" scaleX="10000" scaleY="10000"/>
+			<s:Image source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg" scaleX="1000" scaleY="1000"/>
+			<s:Image source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg" scaleX="100" scaleY="100"/>
+			<s:Image source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg" scaleX="10" scaleY="10"/>
+			<s:Image source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg" scaleX="1" scaleY="1"/>
+			<s:Image source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg" scaleX=".1" scaleY=".1"/>
+			<s:Image source="assets/44_Jan_Vermeer_Het_melkmeisje_1661.jpg" scaleX=".01" scaleY=".01"/>
+		</s:Group>
+		
+	</s:Group>
+	
+	<view:SimpleZoomPanController target="{zpL4}" left="15" top="15"/>
+</s:Group>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:ZoomPanItemBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+							xmlns:s="library://ns.adobe.com/flex/spark" 
+							xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:view="com.ludens.zoompan.view.*" width="400" height="300">
+	
+	
+	
+	<fx:Declarations>
+		<!---
+		
+		a cool way to view values of the matrix you're currently manipulating. can be freaky!
+		
+		-->
+		
+		<fx:String id="matrixValuesText">{   
+			'a='   + transformMatrix.a 
+			+ 	'\nb='  + Math.round(transformMatrix.b) 
+			+ 	'\nc='  + Math.round(transformMatrix.c)
+			+ 	'\nd='  + Math.round(transformMatrix.d) 
+			+ 	'\ntx=' + Math.round(transformMatrix.tx) 
+			+ 	'\nty=' + Math.round(transformMatrix.ty)
+		}</fx:String>
+	</fx:Declarations>
+	<s:Label text="{matrixValuesText}"/>
+</view:ZoomPanItemBase>

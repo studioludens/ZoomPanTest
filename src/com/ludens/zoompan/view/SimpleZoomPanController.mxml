@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"  height="22" xmlns:layout="com.ludens.zoompan.layout.*">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.ludens.zoompan.IZoomPanLayout;
+			import com.ludens.zoompan.IZoomPannable;
+			
+			[Bindable]
+			public var target:IZoomPanLayout;
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!--- 
+		
+		list of zoom values 
+		
+		-->
+		
+		<fx:Number id="zoomFactor">@{target.zoomFactor}</fx:Number>
+		<fx:Boolean id="zoomEnabled">@{target.zoomEnabled}</fx:Boolean>
+		<fx:Boolean id="panEnabled">@{target.panEnabled}</fx:Boolean>
+		
+		<!--<layout:ZoomPanLayout id="target" zoom="{zoom}"></layout:ZoomPanLayout>-->
+		
+		
+		<s:ArrayCollection id="zoomToValues">
+			<s:source>
+				<fx:Array>
+					<fx:Object label="to fit" value="fit"/>
+					
+					<fx:Object label="200%" value="2"/>
+					<fx:Object label="100%" value="1"/>
+					<fx:Object label="50%" value=".5"/>
+					<fx:Object label="25%" value=".25"/>
+					<fx:Object label="10%" value=".1"/>
+					
+				</fx:Array>
+			</s:source>
+		</s:ArrayCollection>
+		
+		
+	</fx:Declarations>
+	
+	
+	
+	<s:layout>
+		<s:HorizontalLayout gap="10"/>
+	</s:layout>
+	<s:Button label="zoom to fit" click="{target.zoom = 'fit'}"/>
+	
+	<s:DropDownList id="zoomList" change="{target.zoom = zoomList.selectedItem.value}"
+					dataProvider="{zoomToValues}" selectedIndex="0"
+					></s:DropDownList>
+	<s:TextInput width="50" text="{Math.round(zoomFactor*100) + '%'}"/>
+	<s:CheckBox label="panning enabled" selected="@{target.panEnabled}"/>
+	<s:CheckBox label="zooming enabled" selected="@{target.zoomEnabled}"/>
+	
+</s:Group>

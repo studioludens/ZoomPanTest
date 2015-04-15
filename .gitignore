@@ -1,0 +1,5 @@
+.svn
+bin-debug/
+.DS_Store
+libs/flexunit/
+libs/greensock-as3/docs/

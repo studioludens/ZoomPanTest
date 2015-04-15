@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:layout="com.ludens.zoompan.layout.*"
+		 xmlns:layouts="ws.tink.spark.layouts.*"
+		 xmlns:containers="ws.tink.spark.containers.*"
+		 xmlns:controls="ws.tink.spark.controls.*"
+		 
+		 xmlns:view="com.ludens.zoompan.view.*" 
+		 xmlns:tests="com.ludens.zoompan.tests.*"
+		 width="400" height="300">
+	<fx:Declarations>
+		<fx:int id="groupIndex">1</fx:int>
+		
+		<!--
+		
+		-->
+		
+	</fx:Declarations>
+	
+	<mx:ViewStack id="view" left="0" right="0" top="0" bottom="30">
+		<s:NavigatorContent width="100%" height="100%" label="Test 1 | Image">
+			<!---
+			
+			Test 1
+			======
+			
+			Have the group with the ZoomPanLayout on 
+			full view with just one element: an image
+			
+			## Debug ##
+			show a red circle where on the object the mouse has been scrolled
+			
+			
+			-->
+			<tests:Test1 width="100%" height="100%"/>
+			
+		</s:NavigatorContent>
+		
+		<!---
+		
+		Test 2
+		======
+		
+		Have the group with the ZoomPanLayout on 
+		full view with just one element: an image
+		
+		## Debug ##
+		show a red circle where on the object the mouse has been scrolled
+		
+		
+		-->
+		<s:NavigatorContent width="100%" height="100%" label="Test 2 | UI Components">
+			<tests:Test2 width="100%" height="100%"/>
+		</s:NavigatorContent>
+		
+		<!---
+		
+		Test 3
+		======
+		
+		
+		single image in a group - no widths, heights or positions set 
+		
+		navigator content position is set (parent component) using left/right/top/bottom
+		
+		
+		## children ##
+		
+		should be 
+		preferred width
+		and height
+		
+		## scrolling ##
+		should be from the right location
+		
+		## animation ##
+		
+		turned on on scrolling and zooming to fit
+		
+		-->
+		<s:NavigatorContent left="10" right="10" top="10" bottom="10" 
+							label="Test 3 | Animate">
+			
+			<tests:Test3 width="100%" height="100%"/>
+		</s:NavigatorContent>
+		
+		<!---
+		
+		Test 4
+		======
+		
+		logarithmic scaling of the size of a couple of images
+		
+		to see the accuracy of the Matrix and Number data types
+		
+		## speed ##
+		
+		should be 
+		sufficient
+		
+		## scrolling ##
+		should be from the right location
+		
+		## accuracy ##
+		how many magnitudes of accuracy can Flex handle?
+		- result: with images about 7
+		
+		-->
+		<s:NavigatorContent left="10" right="10" top="10" bottom="10" 
+							label="Test 4 | Logarithmic">
+			<tests:Test4 width="100%" height="100%"/>
+			
+		</s:NavigatorContent>
+		
+		<!---
+		
+		Test 5
+		======
+		
+		backgrounds
+		
+		should show a movable pannable grid
+		
+		## speed ##
+		
+		should be 
+		sufficient
+		
+		
+		-->
+		<s:NavigatorContent left="10" right="10" top="10" bottom="10" 
+							label="Test 5 | Grid">
+			<tests:Test5 width="100%" height="100%"/>
+		</s:NavigatorContent>
+		
+		<!---
+		
+		Test 6
+		======
+		
+		some beautiful images
+		
+		## speed ##
+		
+		should be 
+		sufficient
+		
+		
+		-->
+		<s:NavigatorContent left="10" right="10" top="10" bottom="10" 
+							label="Test 6 | Space">
+			<tests:Test6 width="100%" height="100%"/>
+			
+		</s:NavigatorContent>
+		
+		<!---
+		
+		Test 7
+		======
+		
+		infinite zooming grid
+		
+		## speed ##
+		
+		should be 
+		sufficient
+		
+		
+		-->
+		<s:NavigatorContent left="10" right="10" top="10" bottom="10" 
+							label="Test 7 | Infinite Grid">
+			<tests:Test7 width="100%" height="100%"/>
+			
+		</s:NavigatorContent>
+		
+	</mx:ViewStack>
+	<s:ButtonBar left="5" bottom="5" dataProvider="{view}">
+		
+	</s:ButtonBar>
+</s:Group>

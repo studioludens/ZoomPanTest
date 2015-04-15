@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300"
+		 
+		 xmlns:layout="com.ludens.zoompan.layout.*" 
+		 xmlns:view="com.ludens.zoompan.view.*">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:layout>
+		<layout:ZoomPanLayout 
+			id="layout"
+			backgroundElements="{[   
+			gridBackground, 
+			blackBackground]}"
+			animate="true"
+			>
+			
+		</layout:ZoomPanLayout>
+	</s:layout>
+	
+	
+	<!-- black background -->
+	<s:Rect id="blackBackground">
+		<s:fill>
+			<s:SolidColor color="0"/>
+		</s:fill>
+	</s:Rect>
+	<!-- large grid -->
+	<view:GridBackground id="gridBackground"
+						 gridLineDistance="100"
+						 gridStrokeColor="0xDDDDDD"
+						 />
+	
+	
+	<s:Group>
+		<s:Image source="assets/m106_lumhst_colorablock_red1.jpg" x="100" y="100" smoothingQuality="high"/>
+	</s:Group>
+	
+	
+</s:Group>
